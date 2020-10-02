@@ -5,7 +5,7 @@ import { logout } from '../services/auth';
 
 
 const handleLogout = props => {
-  logout().then(() => {
+	logout().then(() => {
     props.setUser(null);
   })
 }
