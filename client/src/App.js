@@ -1,25 +1,58 @@
 import React, { Component } from "react";
 import "./App.css";
-import NavBar from "./components/NavBar";
+import Navbar from "./components/Navbar";
 import ContactInfo from "./components/ContactInfo";
 import ImageCar from "./components/ImageCar";
 import IntroApp from "./components/IntroApp";
 import SearchBar from "./components/SearchBar";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { BrowserRouter as Router, Route, link } from "react-router-dom";
+import { Route, Redirect } from 'react-router-dom';
+import Signup from './components/Signup';
+import Login from './components/Login';
+
 
 class App extends Component {
-	render() {
-		return (
-			<Router>
-				<div className='container center'>
-					<h2>Astro</h2>
 
-					<Route path='/' exact component={NavBar} />
-					<Route path='/edit/:id' component={SearchBar} />
-					<Route path='/create' component={IntroApp} />
+  state = {
+    user: this.props.user
+  }
+
+  setUser = user => {
+    this.setState({
+      user: user
+    });
+  }
+
+
+	render() {
+    
+		return (
+				<div className='App'>
+          <Navbar user={this.state.user} setUser={this.setUser} />
+					
+          {/* <Route 
+          exact
+          path='/edit/:id' 
+          component={SearchBar} />
+
+					<Route 
+          exact
+          path='/create' 
+          component={IntroApp} /> */}
+
+        <Route
+          exact
+          path='/signup'
+          render={props => <Signup setUser={this.setUser} {...props} />}
+        />
+
+          <Route
+          exact
+          path='/login'
+          render={props => <Login setUser={this.setUser} {...props} />}
+        />
+
 				</div>
-			</Router>
 		);
 	}
 }
