@@ -29,16 +29,23 @@ class App extends Component {
 		return (
 				<div className='App'>
           <Navbar user={this.state.user} setUser={this.setUser} />
+
+          <Route 
+          exact 
+          path="/" 
+          component={ImageCar} />
+
+          
 					
           {/* <Route 
           exact
           path='/edit/:id' 
-          component={SearchBar} />
+          component={SearchBar} /> */}
 
-					<Route 
+					{/* <Route 
           exact
           path='/create' 
-          component={IntroApp} /> */}
+          component={IntroApp} />  */}
 
         <Route
           exact
