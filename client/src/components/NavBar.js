@@ -17,7 +17,7 @@ export default function Navbar(props) {
 			<Nav.Toggle aria-controls="responsive-navbar-nav" />
 			<Nav.Collapse id="responsive-navbar-nav"></Nav.Collapse>
 			<Nav className="mr-auto">
-      {props.user && <Nav.Brand>Welcome {props.user.username} 🍺</Nav.Brand>}
+      {props.user && <Nav.Brand>Welcome {props.user.username} 🚀</Nav.Brand>}
       <Nav.Brand>
         <Link to='/'>Home</Link>
       </Nav.Brand>
