@@ -9,6 +9,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Route, Redirect } from 'react-router-dom';
 import Signup from './components/Signup';
 import Login from './components/Login';
+import PictureInfo from './components/PictureInfo'
 
 
 class App extends Component {
@@ -31,9 +32,10 @@ class App extends Component {
           <Navbar user={this.state.user} setUser={this.setUser} />
 
           <Route 
-          exact 
-          path="/" 
-          component={ImageCar} />
+            exact 
+            path="/" 
+            component={ImageCar} 
+          />
 
           
 					
@@ -47,17 +49,23 @@ class App extends Component {
           path='/create' 
           component={IntroApp} />  */}
 
-        <Route
-          exact
-          path='/signup'
-          render={props => <Signup setUser={this.setUser} {...props} />}
-        />
+          <Route 
+            exact
+            path='/:date'
+            component={PictureInfo}
+          />
 
           <Route
-          exact
-          path='/login'
-          render={props => <Login setUser={this.setUser} {...props} />}
-        />
+            exact
+            path='/signup'
+            render={props => <Signup setUser={this.setUser} {...props} />}
+          />
+
+            <Route
+            exact
+            path='/login'
+            render={props => <Login setUser={this.setUser} {...props} />}
+          />
 
 				</div>
 		);
