@@ -2,16 +2,17 @@ import React, { Component } from "react";
 import axios from "axios";
 import ReactPlayer from "react-player";
 
-export default class PictureInfo extends Component {
+export default class Year extends Component {
 	state = {
 		pictureDetails: null,
 	};
 
 	getPictureData = () => {
-		const pictureDate = this.props.match.params.date;
+		const pictureDate = this.props.match.params.year;
+		console.log(pictureDate);
 		axios
 			.get(
-				`https://api.nasa.gov/planetary/apod?date=${pictureDate}&api_key=m9tEyBvgSAadPMun0avSsJPMD8vd03jMA0sKnOAf`
+				`https://api.nasa.gov/planetary/apod?start_date=${Year}-01-01&end_date=${Year}-12-31&api_key=m9tEyBvgSAadPMun0avSsJPMD8vd03jMA0sKnOAf`
 			)
 			.then((response) => {
 				this.setState({
