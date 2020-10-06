@@ -10,7 +10,7 @@ const handleLogout = props => {
   })
 }
 
-export default function Navbar(props) {
+export default function NavBar(props) {
   return (
     <Nav className='nav justify-content-end' bg='primary'>
 			<Nav.Brand><h2>AstroShare</h2></Nav.Brand> 

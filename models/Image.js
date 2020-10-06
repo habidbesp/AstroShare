@@ -6,6 +6,8 @@ const imageSchema = new Schema({
   media_type: String,
   date: Date,
   copyright: String,
+  explanation: String,
+
   likes:[
     {
       type: Schema.Types.ObjectId, 
@@ -20,5 +22,5 @@ const imageSchema = new Schema({
   ]
 });
 
-const User = mongoose.model('Image', imageSchema);
+const Image = mongoose.model('Image', imageSchema);
 module.exports = Image;

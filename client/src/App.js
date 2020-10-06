@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
-import Navbar from "./components/Navbar";
+import NavBar from "./components/NavBar";
 import ContactInfo from "./components/ContactInfo";
 import ImageCar from "./components/ImageCar";
 import IntroApp from "./components/IntroApp";
@@ -29,7 +29,7 @@ class App extends Component {
     
 		return (
 				<div className='App'>
-          <Navbar user={this.state.user} setUser={this.setUser} />
+          <NavBar user={this.state.user} setUser={this.setUser} />
 
           <Route 
             exact 

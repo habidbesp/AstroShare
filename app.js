@@ -86,4 +86,7 @@ app.use('/', index);
 const auth = require('./routes/auth');
 app.use('/api/auth', auth);
 
+const images = require('./routes/images');
+app.use('/api/images', images);
+
 module.exports = app;

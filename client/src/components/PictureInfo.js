@@ -36,7 +36,7 @@ componentDidUpdate(prevProps) {
 
   render() {
     const details = this.state.pictureDetails
-    console.log(details);
+    console.log("this is details", details);
     if (!details) return <></>;
     return(
       <div>
