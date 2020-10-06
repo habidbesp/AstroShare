@@ -4,14 +4,18 @@ import "./index.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import axios from "axios";
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter, Switch } from "react-router-dom";
 
 axios.get("/api/auth/loggedin").then((response) => {
 	const user = response.data;
 	ReactDOM.render(
+		
 		<BrowserRouter>
+
 			<App user={user} />
+			
 		</BrowserRouter>,
+		
 		document.getElementById("root")
 	);
 });
