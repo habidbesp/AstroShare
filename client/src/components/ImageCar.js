@@ -45,6 +45,9 @@ export default class ImageCar extends Component {
           </Link>
         </div>
         <div>
+          <Link to="/picturesLastYear">To Pictures of las Year</Link>
+        </div>
+        <div>
           <SearchBar
             startDate={this.state.startDateQuery}
             endDate={this.state.finishDateQuery}
