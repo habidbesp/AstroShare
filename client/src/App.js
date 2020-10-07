@@ -12,6 +12,7 @@ import PictureInfo from "./components/PictureInfo";
 import PictureOfTheDay from "./components/PictureOfTheDay";
 import PicturesLastYear from "./components/PicturesLastYear";
 import PictureDetails from "./components/PictureDetails";
+import Profile from "./components/Profile";
 
 class App extends Component {
   state = {
@@ -31,12 +32,28 @@ class App extends Component {
 
         <Route exact path="/pictureOfTheDay" component={PictureOfTheDay} />
 
-        <Route exact path="/picturesLastYear" component={PicturesLastYear} />
+        <Route
+          exact
+          path="/picturesLastYear"
+          render={(props) => (
+            <PicturesLastYear user={this.state.user} {...props} />
+          )}
+        />
 
         <Route
           exact
           path="/picturesLastYear/:date"
-          component={PictureDetails}
+          render={(props) => (
+            <PictureDetails user={this.state.user} {...props} />
+          )}
+        />
+
+        <Route
+          exact
+          path="/picturesLastYear/profile"
+          render={(props) => (
+            <Profile user={this.state.user} setUser={this.setUser} {...props} />
+          )}
         />
 
         <Route exact path="/" component={ImageCar} />

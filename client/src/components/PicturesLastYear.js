@@ -8,6 +8,7 @@ export default class PicturesLastYear extends Component {
   state = {
     data: [],
     query: "",
+    user: this.props.user,
   };
 
   getInfo = async () => {
@@ -45,7 +46,7 @@ export default class PicturesLastYear extends Component {
         </div>
         <div>
           {this.state.data.map((item, index) => (
-            <ListOfPictures data={item} key={index} />
+            <ListOfPictures data={item} key={index} user={this.state.user} />
           ))}
         </div>
       </>
