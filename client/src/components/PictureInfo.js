@@ -9,6 +9,7 @@ export default class PictureInfo extends Component {
 
   getPictureData = () => {
     const pictureDate = this.props.match.params.date;
+    console.log(pictureDate);
     axios
       .get(
         `https://api.nasa.gov/planetary/apod?date=${pictureDate}&api_key=YvAJe2JedQpdEB7waYUIly16t4h4T5AgBe1gVsMV`

@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import axios from "axios";
-import ListItem from "./ListItem";
 import FindBar from "./FindBar";
+import ListOfPictures from "./ListOfPictures";
+import { Link } from "react-router-dom";
 
 export default class PicturesLastYear extends Component {
   state = {
@@ -10,7 +11,7 @@ export default class PicturesLastYear extends Component {
   };
 
   getInfo = async () => {
-    let response = await axios.get("pictureOfTheDay.json");
+    let response = await axios.get("project.json");
     this.setState({ data: response.data });
   };
 
@@ -22,25 +23,32 @@ export default class PicturesLastYear extends Component {
     this.setState({
       query: newValue,
     });
-    let response = await axios
-      .get("pictureOfTheDay.json")
-      .filter((word) => newValue);
-
+    let response = await axios.get("project.json");
+    let newArr = response.data.filter((word) => {
+      return word.title.toLowerCase().includes(newValue.toLowerCase());
+    });
     this.setState({
-      data: response.data,
+      data: newArr,
     });
   };
 
   render() {
     return (
-      <div>
-        <FindBar query={this.state.query} handleQuery={this.handleQuery} />
+      <>
         <div>
-          {this.state.data.map((item) => (
-            <ListItem data={item} key={item.date} />
+          <Link to="/pictureOfTheDay">
+            <h1>To "The Picture of the Day"</h1>
+          </Link>
+        </div>
+        <div>
+          <FindBar query={this.state.query} handleQuery={this.handleQuery} />
+        </div>
+        <div>
+          {this.state.data.map((item, index) => (
+            <ListOfPictures data={item} key={index} />
           ))}
         </div>
-      </div>
+      </>
     );
   }
 }
