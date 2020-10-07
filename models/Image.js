@@ -8,16 +8,14 @@ const imageSchema = new Schema({
   service_version: String,
   title: String,
   url: String,
-  likes: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: "User",
-    },
-  ],
+  owner: {
+    type: Schema.Types.ObjectId,
+    ref: "User",
+  },
   comments: [
     {
-      author: String,
-      text: String,
+      type: Schema.Types.ObjectId,
+      ref: "Comments",
     },
   ],
 });
