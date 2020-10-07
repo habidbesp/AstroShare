@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-import ReactPlayer from "react-player";
+import PictureItems from "./PictureItems";
 
 export default class PictureInfo extends Component {
 	state = {
@@ -11,7 +11,7 @@ export default class PictureInfo extends Component {
 		const pictureDate = this.props.match.params.date;
 		axios
 			.get(
-				`https://api.nasa.gov/planetary/apod?date=${pictureDate}&api_key=m9tEyBvgSAadPMun0avSsJPMD8vd03jMA0sKnOAf`
+				`https://api.nasa.gov/planetary/apod?date=${pictureDate}&api_key=YvAJe2JedQpdEB7waYUIly16t4h4T5AgBe1gVsMV`
 			)
 			.then((response) => {
 				this.setState({
@@ -33,22 +33,12 @@ export default class PictureInfo extends Component {
 
 	render() {
 		const details = this.state.pictureDetails;
-		console.log(details);
+		// console.log(details);
 		if (!details) return <></>;
 		return (
-			<div>
-				<div>
-					{details.media_type === "video" ? (
-						<ReactPlayer url={details.url} controls={true} />
-					) : (
-						<img src={details.url} alt={details.title} />
-					)}
-				</div>
-				<h2>{details.title}</h2>
-				<p>Date: {details.date}</p>
-				{details.copyright ? <p>Copyright© {details.copyright}</p> : <></>}
-				<p>{details.explanation}</p>
-			</div>
+			<>
+				<PictureItems data={details} key={details.date} />
+			</>
 		);
 	}
 }

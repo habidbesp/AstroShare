@@ -1,46 +1,80 @@
 import React, { Component } from "react";
 import ListItem from "./ListItem";
 import axios from "axios";
+import { Link } from "react-router-dom";
+import SearchBar from "./SearchBar";
+import { Container, Row, Carousel, Item } from "react-bootstrap";
 
 export default class ImageCar extends Component {
 	state = {
-		year: 2020,
-		month: "09",
 		data: [],
+		startDateQuery: "2015-01-30",
+		finishDateQuery: "2015-01-31",
 	};
 
-	getInfo() {
-		let yearArr = [];
-		for (let i = 1; i <= 30; i++) {
-			axios
-				.get(
-					`https://api.nasa.gov/planetary/apod?date=${this.state.year}-${this.state.month}-${i}&api_key=m9tEyBvgSAadPMun0avSsJPMD8vd03jMA0sKnOAf`
-				)
-				.then((response) => {
-					yearArr.push(response.data);
-					// console.log("This is arrYear", yearArr);
-					this.setState({
-						data: yearArr,
-					});
-				})
-				.catch((err) => console.log(err));
-		}
-	}
+	handleChange = (newValue, name) => {
+		console.log(newValue, name);
+
+		this.setState({
+			[name]: newValue,
+		});
+		console.log("work?", this.state);
+	};
+
+	getInfo = async () => {
+		let response = await axios.get(
+			`https://api.nasa.gov/planetary/apod?api_key=YvAJe2JedQpdEB7waYUIly16t4h4T5AgBe1gVsMV&start_date=${this.state.startDateQuery}&end_date=${this.state.finishDateQuery}`
+		);
+		this.setState({ data: response.data });
+
+		// this.setState({
+		// 	data: [
+		// 		{ url: "https://images.pexels.com/photos/853199/pexels-photo-853199.jpeg", to: "xxx" },
+		// 		{ url: "https://images.pexels.com/photos/853199/pexels-photo-853199.jpeg", to: "xxx" },
+		// 		{ url: "https://images.pexels.com/photos/853199/pexels-photo-853199.jpeg", to: "xxx" },
+		// 	],
+		// });
+	};
 
 	componentDidMount() {
 		this.getInfo();
 	}
 
+	componentDidUpdate() {
+		// this.getInfo();
+	}
+
 	render() {
 		// console.log("render.data", this.state.data);
 		return (
-			<>
-				{this.state.data.length === 0 ? (
-					<h1>Loading...</h1>
-				) : (
-					this.state.data.map((item) => <ListItem data={item} key={item.date} />)
-				)}
-			</>
+			<Container>
+				<Row>
+					<div>
+						<div>
+							<Link to='/pictureOfTheDay'>
+								<h1>To "The Picture of the Day"</h1>
+							</Link>
+						</div>
+						<div>
+							<Link to='/picturesLastYear'>To Pictures of last Year</Link>
+						</div>
+						<div>
+							<SearchBar
+								startDate={this.state.startDateQuery}
+								endDate={this.state.finishDateQuery}
+								dateChange={this.handleChange}
+							/>
+						</div>
+						<div>
+							{this.state.data.length === 0 ? (
+								<h1>Loading...</h1>
+							) : (
+								this.state.data.map((item) => <ListItem data={item} key={item.date} />)
+							)}
+						</div>
+					</div>
+				</Row>
+			</Container>
 		);
 	}
 }

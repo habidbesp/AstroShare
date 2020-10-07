@@ -4,15 +4,13 @@ import Navbar from "./components/Navbar";
 import ContactInfo from "./components/ContactInfo";
 import ImageCar from "./components/ImageCar";
 import IntroApp from "./components/IntroApp";
-import SearchBar from "./components/SearchBar";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Route, Redirect } from "react-router-dom";
+import { Route, Redirect, Switch } from "react-router-dom";
 import Signup from "./components/Signup";
 import Login from "./components/Login";
 import PictureInfo from "./components/PictureInfo";
-import Year from "./components/Year";
-import Month from "./components/Month";
-import Day from "./components/Day";
+import PictureOfTheDay from "./components/PictureOfTheDay";
+import PicturesLastYear from "./components/PicturesLastYear";
 
 class App extends Component {
 	state = {
@@ -30,23 +28,11 @@ class App extends Component {
 			<div className='App'>
 				<Navbar user={this.state.user} setUser={this.setUser} />
 
+				<Route exact path='/pictureOfTheDay' component={PictureOfTheDay} />
+
+				<Route exact path='/picturesLastYear' component={PicturesLastYear} />
+
 				<Route exact path='/' component={ImageCar} />
-
-				{/* <Route 
-          exact
-          path='/edit/:id' 
-          component={SearchBar} /> */}
-
-				{/* <Route 
-          exact
-          path='/create' 
-          component={IntroApp} />  */}
-
-				<Route exact path='/list/:year' component={Year} />
-
-				<Route exact path='/list/:year/:month' component={Month} />
-
-				<Route exact path='/list/:year/:month/:day' component={Day} />
 
 				<Route exact path='/:date' component={PictureInfo} />
 
