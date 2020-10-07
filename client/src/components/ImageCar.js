@@ -7,8 +7,8 @@ import SearchBar from "./SearchBar";
 export default class ImageCar extends Component {
   state = {
     data: [],
-    startDateQuery: "2015-01-30",
-    finishDateQuery: "2015-01-31",
+    startDateQuery: "2019-02-05",
+    finishDateQuery: "2019-02-05",
   };
 
   handleChange = (newValue, name) => {
