@@ -16,7 +16,7 @@ export default class ListOfPictures extends Component {
 						<img class='w-100' src={items.url} alt={items.title} />
 					)}
 					<Link key={items.date} to={`/picturesLastYear/${items.date}`}>
-						<h2>{items.title}</h2>
+						<h5>{items.title}</h5>
 					</Link>
 				</div>
 			</div>
