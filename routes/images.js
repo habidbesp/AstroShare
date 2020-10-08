@@ -14,20 +14,20 @@ const Image = require("../models/Image");
 // });
 
 // get a specific project
-router.get("/:id", (req, res) => {
-  console.log(req.params);
-  Images.findById(req.params.id)
-    .then((image) => {
-      if (!image) {
-        res.status(404).json(image);
-      } else {
-        res.status(200).json(image);
-      }
-    })
-    .catch((error) => {
-      res.json(error);
-    });
-});
+// router.get("/:id", (req, res) => {
+//   console.log(req.params);
+//   Images.findById(req.params.id)
+//     .then((image) => {
+//       if (!image) {
+//         res.status(404).json(image);
+//       } else {
+//         res.status(200).json(image);
+//       }
+//     })
+//     .catch((error) => {
+//       res.json(error);
+//     });
+// });
 
 router.get("/", (req, res) => {
   console.log(req.params);

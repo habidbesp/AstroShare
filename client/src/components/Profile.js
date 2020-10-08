@@ -3,7 +3,7 @@ import ProfileDetails from "./ProfileDetails";
 
 export default class Profile extends Component {
   render() {
-    console.log(this.props);
+    // console.log(this.props);
     return (
       <div>
         <ProfileDetails user={this.props.user} />

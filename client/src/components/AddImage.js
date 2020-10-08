@@ -48,7 +48,7 @@ export default class AddImage extends Component {
   render() {
     return (
       <Form onSubmit={this.handleSubmit}>
-        <Button type="submit">Add an image</Button>
+        <Button type="submit">Add To Your Favorites</Button>
       </Form>
     );
   }
