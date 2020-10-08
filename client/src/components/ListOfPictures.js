@@ -14,7 +14,7 @@ export default class ListOfPictures extends Component {
           ) : (
             <img src={items.url} alt={items.title} />
           )}
-          <Link key={items.date} to={`/picturesLastYear/${items.date}`}>
+          <Link key={items.date} to={`/collection/${items.date}`}>
             <p>{items.date}</p>
             <h2>{items.title}</h2>
           </Link>
