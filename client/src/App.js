@@ -1,10 +1,8 @@
 import React, { Component } from "react";
 import "./App.css";
 import Navbar from "./components/Navbar";
-import ContactInfo from "./components/ContactInfo";
-import IntroApp from "./components/IntroApp";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Route, Redirect, Switch } from "react-router-dom";
+import { Route } from "react-router-dom";
 import Signup from "./components/Signup";
 import Login from "./components/Login";
 import PictureOfTheDay from "./components/PictureOfTheDay";
@@ -12,6 +10,7 @@ import PicturesLastYear from "./components/PicturesLastYear";
 import PictureDetails from "./components/PictureDetails";
 import Profile from "./components/Profile";
 import Home from "./components/Home";
+import ProfileChild from "./components/ProfileChild";
 
 class App extends Component {
   state = {
@@ -35,7 +34,7 @@ class App extends Component {
 
         <Route
           exact
-          path="/picturesLastYear"
+          path="/collection"
           render={(props) => (
             <PicturesLastYear user={this.state.user} {...props} />
           )}
@@ -43,25 +42,25 @@ class App extends Component {
 
         <Route
           exact
-          path="/picturesLastYear/:date"
+          path="/collection/:date"
           render={(props) => (
             <PictureDetails user={this.state.user} {...props} />
           )}
         />
 
-        <Switch>
-          <Route
-            exact
-            path="/picturesLastYear/profile"
-            render={(props) => (
-              <Profile
-                user={this.state.user}
-                setUser={this.setUser}
-                {...props}
-              />
-            )}
-          />
-        </Switch>
+        <Route
+          exact
+          path="/profile"
+          render={(props) => (
+            <Profile
+              user={this.state.user}
+              // setUser={this.setUser}
+              {...props}
+            />
+          )}
+        />
+
+        <Route exact path="/profile/:id" component={ProfileChild} />
 
         <Route
           exact

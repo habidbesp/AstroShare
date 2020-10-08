@@ -49,6 +49,7 @@ export default class PictureOfTheDay extends Component {
   }
 
   render() {
+    // console.log(this.state);
     return (
       <div>
         <div>

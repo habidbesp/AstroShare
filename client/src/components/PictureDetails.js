@@ -13,7 +13,11 @@ export default class PictureDetails extends Component {
     return (
       <div>
         <div>{<PictureItems data={picture} key={picture.date} />}</div>
-        <AddImage imageDetails={picture} user={this.props.user} />
+        {this.props.user ? (
+          <AddImage imageDetails={picture} user={this.props.user} />
+        ) : (
+          <></>
+        )}
       </div>
     );
   }

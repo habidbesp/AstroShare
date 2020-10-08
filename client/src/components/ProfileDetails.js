@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import axios from "axios";
 import ReactPlayer from "react-player";
+import DeleteImage from "./DeleteImage";
+import { Link } from "react-router-dom";
 
 export default class ProfileDetails extends Component {
   state = {
@@ -46,7 +48,18 @@ export default class ProfileDetails extends Component {
               ) : (
                 <img src={picture.url} alt={picture.title} />
               )}
-              <h2>{picture.title}</h2>
+              <Link
+                key={picture._id}
+                data={picture}
+                to={`/profile/${picture._id}`}
+              >
+                <h2>{picture.title}</h2>
+              </Link>
+              <DeleteImage
+                data={picture}
+                user={this.props.user}
+                getData={this.getData}
+              />
             </div>
           );
         })}

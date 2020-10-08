@@ -24,10 +24,13 @@ export default function Navbar(props) {
           <Link to="/">Home</Link>
         </Nav.Brand>
 
+        <Nav.Brand>
+          <Link to="/collection">Collection</Link>
+        </Nav.Brand>
         {props.user ? (
           <>
             <Nav.Brand>
-              <Link to="/picturesLastYear/profile">Profile</Link>
+              <Link to="/profile">Profile</Link>
             </Nav.Brand>
             <Nav.Brand>
               <Link to="/" onClick={() => handleLogout(props)}>

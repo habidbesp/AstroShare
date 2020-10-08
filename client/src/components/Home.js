@@ -14,7 +14,7 @@ export default class Home extends Component {
           </Link>
         </div>
         <div>
-          <Link to="/picturesLastYear">
+          <Link to="/collection">
             <Button>
               <h3>Our Collection</h3>
             </Button>
