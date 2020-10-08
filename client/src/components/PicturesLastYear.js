@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import axios from "axios";
 import FindBar from "./FindBar";
 import ListOfPictures from "./ListOfPictures";
-import { Link } from "react-router-dom";
 
 export default class PicturesLastYear extends Component {
   state = {
@@ -37,17 +36,16 @@ export default class PicturesLastYear extends Component {
     return (
       <>
         <div>
-          <Link to="/pictureOfTheDay">
-            <h1>To "The Picture of the Day"</h1>
-          </Link>
-        </div>
-        <div>
           <FindBar query={this.state.query} handleQuery={this.handleQuery} />
         </div>
         <div>
-          {this.state.data.map((item, index) => (
-            <ListOfPictures data={item} key={index} user={this.state.user} />
-          ))}
+          {this.state.data.length === 0 ? (
+            <h1>Loading...</h1>
+          ) : (
+            this.state.data.map((item, index) => (
+              <ListOfPictures data={item} key={index} user={this.state.user} />
+            ))
+          )}
         </div>
       </>
     );

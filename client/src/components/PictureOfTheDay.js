@@ -59,7 +59,7 @@ export default class PictureOfTheDay extends Component {
           )}
         </div>
         <h2>{this.state.title}</h2>
-        <p>Date: {this.state.date}</p>
+        <p>{this.state.date}</p>
         {this.state.copyright ? (
           <p>Copyright© {this.state.copyright}</p>
         ) : (

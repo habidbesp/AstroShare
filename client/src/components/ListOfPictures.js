@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import ReactPlayer from "react-player";
-import AddImage from "./AddImage";
 
 export default class ListOfPictures extends Component {
   render() {
@@ -19,7 +18,6 @@ export default class ListOfPictures extends Component {
             <p>{items.date}</p>
             <h2>{items.title}</h2>
           </Link>
-          <AddImage imageDetails={items} user={this.props.user} />
         </div>
       </div>
     );
