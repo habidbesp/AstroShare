@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
-import Navbar from "./components/Navbar";
+import Navbar from "./components/NavBar";
 import ContactInfo from "./components/ContactInfo";
 import ImageCar from "./components/ImageCar";
 import IntroApp from "./components/IntroApp";
