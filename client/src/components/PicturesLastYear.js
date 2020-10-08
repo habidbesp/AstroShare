@@ -35,18 +35,22 @@ export default class PicturesLastYear extends Component {
 	render() {
 		return (
 			<>
-				<div class='container'>
+				<div className='container'>
 					<div></div>
 					<div>
 						<FindBar query={this.state.query} handleQuery={this.handleQuery} />
 					</div>
-					<div class='container'>
-						<div class='row'>
-							{this.state.data.map((item, index) => (
-								<div class='col-3'>
-									<ListOfPictures data={item} key={index} user={this.state.user} />
-								</div>
-							))}
+					<div className='container'>
+						<div className='row'>
+							{this.state.data.length === 0 ? (
+								<h1>Loading...</h1>
+							) : (
+								this.state.data.map((item, index) => (
+									<div className='col-3'>
+										<ListOfPictures data={item} key={index} user={this.state.user} />
+									</div>
+								))
+							)}
 						</div>
 					</div>
 				</div>

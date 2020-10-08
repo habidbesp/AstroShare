@@ -9,13 +9,13 @@ export default class ListOfPictures extends Component {
 		return (
 			<div>
 				<div>
-					<p>{items.date}</p>
 					{items.media_type === "video" ? (
 						<ReactPlayer className='w-100' url={items.url} controls={true} />
 					) : (
 						<img class='w-100' src={items.url} alt={items.title} />
 					)}
-					<Link key={items.date} to={`/picturesLastYear/${items.date}`}>
+					<Link key={items.date} to={`/collection/${items.date}`}>
+						<p>{items.date}</p>
 						<h5>{items.title}</h5>
 					</Link>
 				</div>
