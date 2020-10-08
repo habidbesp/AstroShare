@@ -7,13 +7,14 @@ import axios from "axios";
 import { BrowserRouter } from "react-router-dom";
 
 axios.get("/api/auth/loggedin").then((response) => {
-	const user = response.data;
-	ReactDOM.render(
-		<BrowserRouter>
-			<App user={user} />
-		</BrowserRouter>,
-		document.getElementById("root")
-	);
+  const user = response.data;
+  ReactDOM.render(
+    <BrowserRouter>
+      <App user={user} />
+    </BrowserRouter>,
+
+    document.getElementById("root")
+  );
 });
 
 // If you want your app to work offline and load faster, you can change

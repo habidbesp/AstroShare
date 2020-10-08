@@ -16,7 +16,7 @@ export default class PictureOfTheDay extends Component {
 
 	getData = () => {
 		axios
-			.get("https://api.nasa.gov/planetary/apod?api_key=pOho83S7wD3DBxy2AMC7uG3empYLsd6o7f4mvAPO")
+			.get("https://api.nasa.gov/planetary/apod?api_key=YvAJe2JedQpdEB7waYUIly16t4h4T5AgBe1gVsMV")
 			.then((response) => {
 				let {
 					copyright,
@@ -47,6 +47,7 @@ export default class PictureOfTheDay extends Component {
 	}
 
 	render() {
+		// console.log(this.state);
 		return (
 			<div>
 				<div>
@@ -57,7 +58,7 @@ export default class PictureOfTheDay extends Component {
 					)}
 				</div>
 				<h2>{this.state.title}</h2>
-				<p>Date: {this.state.date}</p>
+				<p>{this.state.date}</p>
 				{this.state.copyright ? <p>Copyright© {this.state.copyright}</p> : <></>}
 				<p>{this.state.explanation}</p>
 			</div>

@@ -1,0 +1,14 @@
+.navigation {
+	position: relative;
+
+	width: 170px;
+	left: 15px;
+	background-size: contain;
+}
+
+.primary {
+	background-color: red;
+}
+.searchbar {
+	background-color: black;
+}

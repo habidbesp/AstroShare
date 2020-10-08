@@ -14,8 +14,8 @@ export default class PictureItems extends Component {
 					)}
 				</div>
 				<h2>{details.title}</h2>
-				<p>Date: {details.date}</p>
-				{details.copyright ? <p>Copyright© {details.copyright}</p> : <></>}
+				<p>{details.date}</p>
+				{details.copyright && <p>Copyright© {details.copyright}</p>}
 				<p>{details.explanation}</p>
 			</div>
 		);
