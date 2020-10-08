@@ -15,7 +15,9 @@ const passport = require("passport");
 require("./configs/passport.js");
 
 mongoose
-  .connect("mongodb://localhost/astroshare", { useNewUrlParser: true })
+  .connect(process.env.MONGODB_URI || "mongodb://localhost/astroshare", {
+    useNewUrlParser: true,
+  })
   .then((x) => {
     console.log(
       `Connected to Mongo! Database name: "${x.connections[0].name}"`
